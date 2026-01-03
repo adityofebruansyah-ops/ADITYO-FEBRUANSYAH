@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portofolio Mahasiswa</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dark">
+
+  <header>
+    <img src="profil.jpeg" alt="Foto Profil" />
+    <h1>Adityo Februansyah</h1>
+    <p>Mahasiswa Unpam | Web Developer Pemula</p>
+  </header>
+
+  <main>
+    <!-- Musik -->
+    <audio controls loop class="music">
+      <source src="music.mp4" type="audio/mpeg">
+    </audio>
+
+    <!-- Slider Galeri -->
+    <div class="slider">
+      <img src="foto1.jpeg" class="slide active" />
+      <img src="foto2.jpeg" class="slide" />
+      <img src="foto3.jpeg" class="slide" />
+    </div>
+
+    <section>
+      <div class="card from-left">
+        <h2>Tentang Saya</h2>
+        <p>Saya adalah mahasiswa yang tertarik pada pengembangan web.</p>
+      </div>
+
+      <div class="card from-right">
+        <h2>Keahlian</h2>
+        <ul>
+          <li>HTML, CSS, JavaScript</li>
+          <li>Python Dasar</li>
+        </ul>
+      </div>
+
+      <div class="card from-left">
+        <h2>Proyek</h2>
+        <ul>
+          <li>Website Portofolio</li>
+          <li>To-Do List App</li>
+        </ul>
+      </div>
+
+      <div class="card from-right">
+        <h2>Kontak</h2>
+        <p>Email: adityofebruansyah@email.com</p>
+        <p>GitHub: github.com/adityofebruansyah</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Portofolio Mahasiswa</p>
+  </footer>
+
+  <script>
+    // slider otomatis
+    let slides = document.querySelectorAll('.slide');
+    let index = 0;
+
+    setInterval(() => {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }, 3000);
+
+    // animasi scroll
+    const cards = document.querySelectorAll('.card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.2 });
+
+    cards.forEach(card => observer.observe(card));
+  </script>
+
+</body>
+</html>

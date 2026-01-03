@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Mahasiswa & Usia</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+        }
+
+        .card {
+            width: 380px;
+            background: #f7eefe;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #00ff26;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 10px;
+            border: 2px solid #5500ff;
+            font-size: 15px;
+            outline: none;
+        }
+
+        button {
+            width: 120px;
+            padding: 10px;
+            margin: 15px auto;
+            display: block;
+            background: #46a21f;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #5e1380;
+        }
+
+        #hasil {
+            margin-top: 15px;
+            font-size: 17px;
+            color: #4a0072;
+            font-weight: bold;
+            text-align: left;
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Data Mahasiswa & Usia</h2>
+
+        <input type="text" id="nama" placeholder="Nama Mahasiswa">
+        <input type="text" id="nim" placeholder="NIM Mahasiswa">
+        <input type="number" id="tahun" placeholder="Tahun Lahir">
+
+        <button onclick="tampilkan()">Tampilkan</button>
+
+        <div id="hasil"></div>
+    </div>
+
+    <script>
+        function tampilkan() {
+            let nama = document.getElementById("nama").value;
+            let nim = document.getElementById("nim").value;
+            let tahun = Number(document.getElementById("tahun").value);
+
+            // hitung usia
+            let tahunSekarang = new Date().getFullYear();
+            let usia = tahunSekarang - tahun;
+
+            document.getElementById("hasil").innerHTML = 
+            `Nama : ${nama}<br>
+             NIM : ${nim}<br>
+             Usia : ${usia} tahun`;
+        }
+    </script>
+
+</body>
+</html>
